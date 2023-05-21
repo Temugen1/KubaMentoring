@@ -1,6 +1,7 @@
 package lambda_test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -49,7 +50,15 @@ public class test1 {
         zipcode.sendKeys("60111");
         WebElement submit=driver.findElement(By.cssSelector(".btn-dark"));
         submit.click();
-        WebElement confirmations=driver.findElement(By.xpath("//p[@class='success-msg hidden']"));
+        String acutalULR=driver.getCurrentUrl();
+        String expectedURL="https://www.lambdatest.com/selenium-playground/input-form-demo";
+        Assert.assertEquals(acutalULR,expectedURL);
+
+
+        //WebElement confirmations=driver.findElement(By.xpath("//p[@class='success-msg hidden']"));
+
+
+
 
 
 
